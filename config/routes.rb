@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :reviews
+
   root 'books#index'
 
   # get "/books" => "books#index", as: 'books'
