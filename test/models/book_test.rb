@@ -25,7 +25,7 @@ class BookTest < ActiveSupport::TestCase
   end
 
   test 'persistence works properly' do
-    created_book = Book.create(title: 'Snow Crash', author: 'Neal Stephenson', pages: 440)
+    created_book = Book.create(title: 'Snow Crash', author: 'Neal Stephenson', pages: 440, price: 12.99)
     found_book = Book.find created_book.id
     assert_not_nil found_book
     assert_equal 'Snow Crash', found_book.title
@@ -35,7 +35,7 @@ class BookTest < ActiveSupport::TestCase
 
   test "update from a fixture" do
     book = books(:ender)
-    delta = 0.001    
+    delta = 0.001
     assert_in_delta 4.83, book.price, delta
     book.price = 3.99
     book.save
